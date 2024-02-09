@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Papo reto</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="login">Entrar</string>
+    <string name="forgot_pass">Esqueceu a senha ?</string>
+    <string name="create_new_account">Criar nova conta</string>
 </resources>
