@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/white"
+    android:background="@color/white"
     android:orientation="vertical"
     android:weightSum="3"
     tools:context=".LoginActivity">
 
     <ImageView
-        android:layout_weight="1"
         android:id="@+id/img_logo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="124dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
-        android:src="@drawable/icon_messenger" />
+        android:layout_weight="1"
+        android:src="@drawable/dialog_svgrepo_com" />
 
     <LinearLayout
         android:layout_weight="1"
@@ -100,11 +100,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         
-        <ImageView
-            android:src="@drawable/meta_logo"
-            app:tint="@color/yellow"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="48dp"/>
+            android:layout_height="match_parent"
+            android:text="@string/logomarca"
+            android:textAlignment="center"
+            android:gravity="center" />
     </LinearLayout>
 
 </LinearLayout>
