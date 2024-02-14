@@ -6,4 +6,6 @@
     <string name="forgot_pass">Esqueceu a senha ?</string>
     <string name="create_new_account">Criar nova conta</string>
     <string name="logomarca">by LoopSoftware</string>
+    <string name="fullname">Nome completo</string>
+    <string name="sign_up">Cadastre-se</string>
 </resources>

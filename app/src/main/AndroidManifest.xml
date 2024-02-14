@@ -13,7 +13,7 @@
         android:theme="@style/Theme.PapoReto"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".core.authentication.view.LoginActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
