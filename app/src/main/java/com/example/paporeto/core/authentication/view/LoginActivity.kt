@@ -18,6 +18,12 @@ class LoginActivity : AppCompatActivity(), LoginCallback {
     override fun onCreateAcountClicked() {
         val fragment = SignUpFragment()
         supportFragmentManager.commit {
+            setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
             replace(R.id.fragment_container_view, fragment)
             addToBackStack(null)
         }
