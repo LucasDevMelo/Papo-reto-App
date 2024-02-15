@@ -8,4 +8,8 @@
     <string name="logomarca">by LoopSoftware</string>
     <string name="fullname">Nome completo</string>
     <string name="sign_up">Cadastre-se</string>
+    <string name="new_message">Nova mensagem</string>
+    <string name="username">Nome do usuario</string>
+    <string name="message_text">Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste</string>
+    <string name="yesterday">Ontem</string>
 </resources>

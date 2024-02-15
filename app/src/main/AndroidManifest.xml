@@ -13,8 +13,7 @@
         android:theme="@style/Theme.PapoReto"
         tools:targetApi="31">
         <activity
-            android:name=".core.authentication.view.LoginActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".core.inbox.view.InboxActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +22,9 @@
             </intent-filter>
         </activity>
 <!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="true">-->
+<!--            android:name=".core.authentication.view.LoginActivity"-->
+<!--            android:exported="true"-->
+<!--            android:windowSoftInputMode="adjustResize">-->
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
