@@ -2,14 +2,20 @@ package com.example.paporeto.core.authentication.view
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.paporeto.R
+import com.example.paporeto.databinding.ActiveNowItemBinding
+import com.example.paporeto.databinding.ActiveNowListBinding
 import com.example.paporeto.databinding.FragmentInboxBinding
 import com.example.paporeto.databinding.FragmentLoginBinding
 import com.example.paporeto.databinding.FragmentSignUpBinding
+import com.example.paporeto.databinding.InboxRowItemBinding
 
 class InboxFragment : Fragment() {
 
@@ -31,10 +37,88 @@ class InboxFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val inboxAdapter = InboxAdapter()
+        binding.rvInbox.adapter = inboxAdapter
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private inner class ActiveNowAdapter: RecyclerView.Adapter<ActiveNowAdapter.ActiveNowView>(){
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): ActiveNowAdapter.ActiveNowView {
+            return ActiveNowView(ActiveNowItemBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: ActiveNowAdapter.ActiveNowView, position: Int) {
+        }
+
+        override fun getItemCount(): Int {
+            return 10
+        }
+
+        private inner class ActiveNowView(val item: ActiveNowItemBinding) : RecyclerView.ViewHolder(item.root)
+
+    }
+
+    private inner class InboxAdapter: RecyclerView.Adapter<InboxAdapter.InboxView>(){
+
+        private val scrollState = mutableMapOf<Int, Parcelable?>()
+        override fun getItemViewType(position: Int): Int {
+            return if (position > 0) 1 else 0
+        }
+
+        override fun onViewRecycled(holder: InboxView) {
+            super.onViewRecycled(holder)
+            if (holder is ActiveNowView) {
+                val key = holder.layoutPosition
+                scrollState[key] = holder.view.rvActiveNow.layoutManager?.onSaveInstanceState()
+            }
+        }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InboxView {
+            val view = if (viewType == 0) {
+                ActiveNowView(ActiveNowListBinding.inflate(layoutInflater, parent, false))
+            } else {
+                RowView(InboxRowItemBinding.inflate(layoutInflater, parent, false))
+            }
+            return view
+        }
+
+        override fun getItemCount(): Int {
+            return 10
+        }
+
+        override fun onBindViewHolder(holder: InboxView, position: Int) {
+            holder.bind()
+        }
+
+        abstract inner class InboxView(view: View) : RecyclerView.ViewHolder(view){
+            abstract fun bind()
+        }
+        private inner class RowView(view: InboxRowItemBinding): InboxView(view.root) {
+            override fun bind() {
+
+            }
+        }
+
+        private inner class ActiveNowView(val view: ActiveNowListBinding): InboxView(view.root) {
+            override fun bind() {
+                val key = layoutPosition
+                val state = scrollState[key]
+
+                if(state != null) {
+                    view.rvActiveNow.layoutManager?.onRestoreInstanceState(state)
+                } else {
+                    val activieAdapter = ActiveNowAdapter()
+                    view.rvActiveNow.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                    view.rvActiveNow.adapter = activieAdapter
+                }
+            }
+        }
     }
 }

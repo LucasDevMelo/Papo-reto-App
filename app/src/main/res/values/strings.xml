@@ -12,4 +12,5 @@
     <string name="username">Nome do usuario</string>
     <string name="message_text">Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste, Esta é uma mensagem de teste</string>
     <string name="yesterday">Ontem</string>
+    <string name="name">Nome</string>
 </resources>
