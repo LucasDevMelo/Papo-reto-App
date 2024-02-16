@@ -21,6 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".core.profile.view.ProfileActivity"/>
 <!--        <activity-->
 <!--            android:name=".core.authentication.view.LoginActivity"-->
 <!--            android:exported="true"-->

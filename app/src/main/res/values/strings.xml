@@ -14,4 +14,13 @@
     <string name="yesterday">Ontem</string>
     <string name="name">Nome</string>
     <string name="to">Para:</string>
+    <string name="preferences">Preferências</string>
+    <string name="dark_mode">Modo escuro</string>
+    <string name="active_status">Status ativado</string>
+    <string name="acessibility">Acessibilidade</string>
+    <string name="privacy_and_security">Privacidade e Segurança</string>
+    <string name="notifications">Notificações</string>
+    <string name="account">Conta</string>
+    <string name="logout">Sair</string>
+    <string name="delete_account">Deletar a conta</string>
 </resources>

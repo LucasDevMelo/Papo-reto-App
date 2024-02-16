@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/preferences">
+        <Preference
+            android:icon="@drawable/baseline_dark_mode_24"
+            android:title="@string/dark_mode"
+            android:key="dark_mode"/>
+
+        <Preference
+            android:icon="@drawable/baseline_mode_comment_24"
+            android:title="@string/active_status"
+            android:key="active_status"/>
+
+        <Preference
+            android:icon="@drawable/baseline_person_24_yellow"
+            android:title="@string/acessibility"
+            android:key="acessibility"/>
+
+        <Preference
+            android:icon="@drawable/baseline_lock_24"
+            android:title="@string/privacy_and_security"
+            android:key="privacy_and_security"/>
+
+        <Preference
+            android:icon="@drawable/baseline_notifications_24"
+            android:title="@string/notifications"
+            android:key="notifications"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/account">
+
+        <Preference
+            android:title="@string/logout"
+            android:key="logout"/>
+
+        <Preference
+            android:title="@string/delete_account"
+            android:key="delete_account"/>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -10,7 +10,11 @@ import com.example.paporeto.core.newmessage.view.NewMessageFragment
 import com.example.paporeto.databinding.ActivityInboxBinding
 import com.example.paporeto.databinding.FragmentSignUpBinding
 
-class InboxActivity : AppCompatActivity() {
+interface ToolbarCallback {
+    fun goToNewMessage()
+    fun goToProfile()
+}
+class InboxActivity : AppCompatActivity(), ToolbarCallback {
 
     private lateinit var binding: ActivityInboxBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,27 +24,21 @@ class InboxActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.inbox_menu, menu)
-        return true
+    override fun goToNewMessage() {
+        val fragment = NewMessageFragment()
+        supportFragmentManager.commit{
+            setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
+            replace(R.id.fragment_container_view, fragment)
+            addToBackStack(null)
+        }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.new_action -> {
-                val fragment = NewMessageFragment()
-                supportFragmentManager.commit{
-                    setCustomAnimations(
-                        R.anim.slide_in,
-                        R.anim.fade_out,
-                        R.anim.fade_in,
-                        R.anim.slide_out
-                    )
-                    replace(R.id.fragment_container_view, fragment)
-                    addToBackStack(null)
-                }
-            }
-        }
-        return super.onOptionsItemSelected(item)
+    override fun goToProfile() {
+        TODO("Not yet implemented")
     }
 }
