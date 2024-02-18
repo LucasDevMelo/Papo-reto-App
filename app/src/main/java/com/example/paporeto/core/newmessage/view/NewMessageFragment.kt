@@ -51,6 +51,7 @@ class NewMessageFragment : Fragment(), MenuProvider {
         activity.supportActionBar?.title = "Nova mensagem"
 
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
     }
 
     override fun onDestroyView() {

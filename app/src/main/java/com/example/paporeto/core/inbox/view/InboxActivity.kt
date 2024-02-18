@@ -1,5 +1,6 @@
 package com.example.paporeto.core.inbox.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -7,6 +8,7 @@ import android.view.MenuItem
 import androidx.fragment.app.commit
 import com.example.paporeto.R
 import com.example.paporeto.core.newmessage.view.NewMessageFragment
+import com.example.paporeto.core.profile.view.ProfileActivity
 import com.example.paporeto.databinding.ActivityInboxBinding
 import com.example.paporeto.databinding.FragmentSignUpBinding
 
@@ -39,6 +41,7 @@ class InboxActivity : AppCompatActivity(), ToolbarCallback {
     }
 
     override fun goToProfile() {
-        TODO("Not yet implemented")
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
     }
 }

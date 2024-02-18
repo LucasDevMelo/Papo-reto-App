@@ -33,7 +33,7 @@
 
         <Preference
             android:title="@string/logout"
-            android:key="logout"/>
+            android:key="logout" />
 
         <Preference
             android:title="@string/delete_account"

@@ -39,19 +39,15 @@ class InboxFragment : Fragment() , MenuProvider{
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val menuHost: MenuHost = requireActivity()
-        menuHost.addMenuProvider(this)
-    }
-
     override fun onStart() {
         super.onStart()
         val activity = requireActivity() as AppCompatActivity
         activity.supportActionBar?.title = "Conversas"
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         activity.supportActionBar?.setHomeAsUpIndicator(R.drawable.baseline_person_24_yellow)
+
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(this)
     }
 
     override fun onAttach(context: Context) {
@@ -162,7 +158,7 @@ class InboxFragment : Fragment() , MenuProvider{
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when(menuItem.itemId) {
             android.R.id.home -> {
-
+                toolbarCallback.goToProfile()
                 true
             }
             R.id.new_action ->{
