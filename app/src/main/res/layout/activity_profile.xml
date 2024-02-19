@@ -15,6 +15,9 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/img_profile"
         android:layout_width="72dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/circleImageView"
         android:background="@drawable/image_background2"
         android:src="@drawable/baseline_person_24"
         app:contentPadding="10dp"
