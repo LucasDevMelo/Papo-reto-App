@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -23,6 +24,7 @@ import com.example.paporeto.databinding.FragmentInboxBinding
 import com.example.paporeto.databinding.FragmentLoginBinding
 import com.example.paporeto.databinding.FragmentSignUpBinding
 import com.example.paporeto.databinding.InboxRowItemBinding
+import com.example.paporeto.extensions.toCircle
 
 class InboxFragment : Fragment() , MenuProvider{
 
@@ -44,7 +46,10 @@ class InboxFragment : Fragment() , MenuProvider{
         val activity = requireActivity() as AppCompatActivity
         activity.supportActionBar?.title = "Conversas"
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        activity.supportActionBar?.setHomeAsUpIndicator(R.drawable.baseline_person_24_yellow)
+        //activity.supportActionBar?.setHomeAsUpIndicator(R.drawable.cris_teste)
+
+        val drawable = ContextCompat.getDrawable(activity, R.drawable.cristesteportrait)
+        activity.supportActionBar?.setHomeAsUpIndicator(drawable?.toCircle(resources, 32))
 
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this)
