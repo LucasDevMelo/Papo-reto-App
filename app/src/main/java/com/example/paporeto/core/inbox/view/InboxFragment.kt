@@ -48,7 +48,7 @@ class InboxFragment : Fragment() , MenuProvider{
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //activity.supportActionBar?.setHomeAsUpIndicator(R.drawable.cris_teste)
 
-        val drawable = ContextCompat.getDrawable(activity, R.drawable.cristesteportrait)
+        val drawable = ContextCompat.getDrawable(activity, R.drawable.cris_teste)
         activity.supportActionBar?.setHomeAsUpIndicator(drawable?.toCircle(resources, 32))
 
         val menuHost: MenuHost = requireActivity()

@@ -17,6 +17,7 @@ import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.commit
 import com.example.paporeto.R
+import com.example.paporeto.core.model.User
 import com.example.paporeto.core.newmessage.view.NewMessageFragment
 import com.example.paporeto.core.profile.view.ProfileActivity
 import com.example.paporeto.databinding.ActivityInboxBinding
@@ -29,6 +30,7 @@ interface ToolbarCallback {
 class InboxActivity : AppCompatActivity(), ToolbarCallback {
 
     private lateinit var binding: ActivityInboxBinding
+    private val user = User.mock
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInboxBinding.inflate(layoutInflater)
@@ -52,6 +54,7 @@ class InboxActivity : AppCompatActivity(), ToolbarCallback {
 
     override fun goToProfile() {
         val intent = Intent(this, ProfileActivity::class.java)
+        intent.putExtra(ProfileActivity.KEY_USER, user)
         startActivity(intent)
     }
 }
